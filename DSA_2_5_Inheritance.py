@@ -3,7 +3,8 @@
 
 
 class User:
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.__var = 5
 
     def login(self):
@@ -31,16 +32,22 @@ class Student(User):        # inheriting parent (can inherit multiple classes --
 # ----------------------------------------------------------------------------------
 
 
-s1 = Student()
+s1 = Student('Ashura')      # Since the Student class does not define its own __init__ method, it automatically inherits the constructor of its parent class User. 
+
+# Hence we must have to define the name as it have inherited the constructor of the parent class
 
 s1.login()      # accessing parent class methods
 s1.register()
 
 print(s1.get_var())
+print(s1._User__var)
+
+
 s1.show()               # if there are two common methods in parent and child, by calling the show method it will first search for show method in child class (if called via child obj), and will execute it. It show were not present in child class, then it would have search for show method in parent class and would have executed that
 
 
-
+s2 = Student('Jeet')
+print(s1.name)
 
 
 
